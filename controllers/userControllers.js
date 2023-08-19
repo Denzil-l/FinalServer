@@ -48,13 +48,10 @@ export const Login = async (req,res) =>{
         const userExist = await getUserByUserName(username)
         if(userExist !== undefined){
             try {
-                console.log(password)
-                console.log(userExist.password)
+                
                 const match = await bcrypt.compare(password, userExist.password)
-                console.log(match)
 
                 if(match){
-                    console.log('I am here3')
 
                     const userId = userExist.id 
                     const username = userExist.username
@@ -64,7 +61,7 @@ export const Login = async (req,res) =>{
                         httpOnly:true,
                         maxAge: 60 * 10000
                     })
-                    console.log('I am here4')
+                    console.log('Я почти в конце пути')
 
                     res.status(200).json({token:userId})
 

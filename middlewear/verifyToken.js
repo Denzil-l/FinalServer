@@ -22,6 +22,7 @@ export const verifyToken = (req,res,next) => {
                 const answer = await getUserByUserName(username)
                 
                 if(JSON.stringify(answer).length > 0) {
+                    console.log('токен прошел успешно')
                     return next()
 
                 }
