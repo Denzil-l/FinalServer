@@ -57,15 +57,9 @@ export const Login = async (req,res) =>{
                     const username = userExist.username
                     const accessToken = jwt.sign({ userId, username }, process.env.ACCESS_TOKEN_SECRET_KEY, { expiresIn: '10m' });
 
-                    res.cookie('token', accessToken, {
-                        httpOnly:true,
-                        maxAge: 60 * 10000,
-                        secure: true, 
-                        sameSite: 'strict'
-                    })
-                    console.log('Я почти в конце пути')
+                    
 
-                    res.status(200).json({token:userId})
+                    res.status(200).json({token:userId, accessToken: accessToken})
 
                 }else{
                     res.status(400).json({message: 'Password is not correct'})
