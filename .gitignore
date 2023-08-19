@@ -1,0 +1,4 @@
+/node_modules
+package-lock.json
+# add this if you have an .env file
+.env
