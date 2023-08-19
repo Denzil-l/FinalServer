@@ -59,7 +59,9 @@ export const Login = async (req,res) =>{
 
                     res.cookie('token', accessToken, {
                         httpOnly:true,
-                        maxAge: 60 * 10000
+                        maxAge: 60 * 10000,
+                        secure: true, 
+                        sameSite: 'strict'
                     })
                     console.log('Я почти в конце пути')
 
